@@ -9,7 +9,7 @@ import UserProfile from "./pages/Authentication/UserProfile";
 import Pages404 from "./pages/Utility/pages-404"
 import Dashboard from "./pages/Dashboard/index";
 import VerticalLayout from "./components/VerticalLayout";
-import HorizontalLayout from "./components/HorizontalLayout";
+// import HorizontalLayout from "./components/HorizontalLayout";
 import "./assets/scss/theme.scss";
 
 // function getLayout(layout) {
