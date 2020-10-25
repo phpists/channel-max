@@ -11,6 +11,11 @@ const reducer = (state = initialState, action) => {
         authData: action.payload,
       } }
     }
+    case Types.LOG_OUT: {
+      return { ...state, ...{ 
+        authData: null,
+      } }
+    }
     default: return state
   }
 }

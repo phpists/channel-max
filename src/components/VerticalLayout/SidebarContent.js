@@ -74,29 +74,29 @@ const SidebarContent = (props) => {
                                 </Link>
                                 <ul className="sub-menu" aria-expanded="false">
                                     <li><Link to="/dashboard">{props.t('Default') }</Link></li>
-                                    <li><Link to="/dashboard-saas">{props.t('Saas') }</Link></li>
-                                    <li><Link to="/dashboard-crypto">{props.t('Crypto') }</Link></li>
+                                    {/* <li><Link to="/dashboard-saas">{props.t('Saas') }</Link></li> */}
+                                    {/* <li><Link to="/dashboard-crypto">{props.t('Crypto') }</Link></li> */}
                                 </ul>
                      </li>
 
-                    <li className="menu-title">{props.t('Apps') }</li>
+                    {/* <li className="menu-title">{props.t('Apps') }</li> */}
 
-                    <li>
+                    {/* <li>
                         <Link to="calendar" className=" waves-effect">
                             <i className="bx bx-calendar"></i>
                             <span>{props.t('Calendar') }</span>
                         </Link>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                         <Link to="chat" className=" waves-effect">
                             <i className="bx bx-chat"></i>
                             <span className="badge badge-pill badge-success float-right">{props.t('New') }</span>
                             <span>{props.t('Chat') }</span>
                         </Link>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                         <Link to="/#" className="has-arrow waves-effect">
                             <i className="bx bx-store"></i>
                             <span>{props.t('Ecommerce') }</span>
@@ -111,9 +111,9 @@ const SidebarContent = (props) => {
                             <li><Link to="ecommerce-shops">{props.t('Shops') }</Link></li>
                             <li><Link to="ecommerce-add-product">{props.t('Add Product') }</Link></li>
                         </ul>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                         <Link to="/#" className="has-arrow waves-effect">
                             <i className="bx bx-bitcoin"></i>
                             <span>{props.t('Crypto')}</span>
@@ -127,9 +127,9 @@ const SidebarContent = (props) => {
                                 <li><Link to="crypto-kyc-application">{props.t('KYC Application')}</Link></li>
                                 <li><Link to="crypto-ico-landing">{props.t('ICO Landing')}</Link></li>
                             </ul>
-                        </li>
+                        </li> */}
 
-                    <li>
+                    {/* <li>
                         <Link to="/#" className="has-arrow waves-effect">
                             <i className="bx bx-envelope"></i>
                             <span>{props.t('Email')}</span>
@@ -338,7 +338,7 @@ const SidebarContent = (props) => {
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             </React.Fragment>

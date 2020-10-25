@@ -330,11 +330,11 @@ function tToggle()
               <NotificationDropdown />
               <ProfileMenu />
 
-              <div onClick={() => { props.showRightSidebarAction(!props.showRightSidebar); }} className="dropdown d-inline-block">
+              {/* <div onClick={() => { props.showRightSidebarAction(!props.showRightSidebar); }} className="dropdown d-inline-block">
                 <button type="button" className="btn header-item noti-icon right-bar-toggle waves-effect">
                   <i className="bx bx-cog bx-spin"></i>
                 </button>
-              </div>
+              </div> */}
 
             </div>
           </div>

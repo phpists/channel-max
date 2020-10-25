@@ -78,6 +78,7 @@ class Layout extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <div id="preloader">

@@ -8,6 +8,8 @@ export const Types = {
   
   FORGOT_PASSWORD_REQUEST: 'FORGOT_PASSWORD_REQUEST',
   FORGOT_PASSWORD_SUCCESS: 'FORGOT_PASSWORD_SUCCESS',
+
+  LOG_OUT: 'LOG_OUT',
 }
 
 const loginRequest = (payload) => ({
@@ -40,6 +42,10 @@ const forgotPasswordSuccess = (payload) => ({
   payload
 })
 
+const logOut = () => ({
+  type: Types.LOG_OUT
+})
+
 export default {
   loginRequest,
   loginSucces,
@@ -47,4 +53,5 @@ export default {
   registerUserSucces,
   forgotPasswordRequest,
   forgotPasswordSuccess,
+  logOut,
 }

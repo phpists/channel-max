@@ -14,7 +14,6 @@ import {
 
 //SimpleBar
 import SimpleBar from "simplebar-react";
-
 import { Link } from "react-router-dom";
 
 import "./rightbar.scss";
@@ -249,8 +248,6 @@ const RightSidebar = (props) => {
                 >
                   <i className="mdi mdi-cart mr-1"></i> Purchase Now
                 </Link>
-             
-
             </div>
             </div>  
 
