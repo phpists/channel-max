@@ -21,7 +21,6 @@ const Login = (props) => {
 	useEffect(()=>{
 		if(props.authData !== null){
 			props.history.push('/dashboard')
-			// console.log(props)
 		}
 	}, [props.authData])
 

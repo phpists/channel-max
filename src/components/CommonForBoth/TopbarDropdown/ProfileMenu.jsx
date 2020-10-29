@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { withNamespaces } from 'react-i18next';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import user1 from '../../../assets/images/users/avatar-1.jpg';
-import Actions from './../../../store/actions'
+import noAvatar from '../../../assets/images/users/no-avatar.png';
+import Actions from '../../../store/actions'
+import selectors from '../../../selectors'
 
-const ProfileMenu = (props) => {
+const ProfileMenu = React.memo((props) => {
+	const { user } = props
 	const [menu, setMenu] = useState(false);
 
- 	const onLogOut = () => {
-		 sessionStorage.clear()
-		 props.logOut()
-		 props.history.push('/')
-	 }
+	const firstName = user?.given_name || ''
+	const lastName = user?.family_name || ''
+
+	const onLogOut = () => {
+		sessionStorage.clear()
+		props.logOut()
+		props.history.push('/')
+	}
+
+	useEffect(()=>{
+
+	}, [user])
 
 	return (
 		<React.Fragment>
 			<Dropdown isOpen={menu} toggle={() => setMenu(!menu)} className="d-inline-block" >
 				<DropdownToggle className="btn header-item waves-effect" id="page-header-user-dropdown" tag="button">
-					<img className="rounded-circle header-profile-user" src={user1} alt="Header Avatar" />
-					<span className="d-none d-xl-inline-block ml-2 mr-1">User Name</span>
+					<img className="rounded-circle header-profile-user" src={noAvatar} alt="Header Avatar" />
+					<span className="d-none d-xl-inline-block ml-2 mr-1">{`${firstName} ${lastName}`}</span>
 					<i className="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
 				</DropdownToggle>
 				<DropdownMenu right>
@@ -40,11 +49,15 @@ const ProfileMenu = (props) => {
 			</Dropdown>
 		</React.Fragment>
 	);
-}
+})
+
+const mapStateToProps = (state) => ({
+	user: selectors.profile.user(state),
+})
 
 const mapDispatchToProps = (dispatch) => ({
 	logOut: () => dispatch(Actions.authorization.logOut())
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(withNamespaces()(ProfileMenu)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(ProfileMenu)));
 

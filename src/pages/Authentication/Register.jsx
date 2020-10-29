@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import profileImg from "../../assets/images/profile-img.png";
 import logoImg from "../../assets/images/logo.svg";
+import { connect } from "react-redux";
 import Actions from '../../store/actions'
 // availity-reactstrap-validation
 import { AvForm, AvField } from "availity-reactstrap-validation";

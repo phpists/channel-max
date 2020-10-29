@@ -10,6 +10,12 @@ export const Types = {
   FORGOT_PASSWORD_SUCCESS: 'FORGOT_PASSWORD_SUCCESS',
 
   LOG_OUT: 'LOG_OUT',
+
+  GET_USER_PROFILE_REQUEST: 'GET_USER_PROFILE_REQUEST',
+  GET_USER_PROFILE_SUCCESS: 'GET_USER_PROFILE_SUCCESS',
+  
+  CHANGE_USER_PROFILE_REQUEST: 'CHANGE_USER_PROFILE_REQUEST',
+  CHANGE_USER_PROFILE_SUCCESS: 'CHANGE_USER_PROFILE_SUCCESS',
 }
 
 const loginRequest = (payload) => ({
@@ -46,6 +52,25 @@ const logOut = () => ({
   type: Types.LOG_OUT
 })
 
+const getUserProfileRequest = () => ({
+  type: Types.GET_USER_PROFILE_REQUEST,
+})
+
+const getUserProfileSucces = (payload) => ({
+  type: Types.GET_USER_PROFILE_SUCCESS,
+  payload
+})
+
+const changeUserProfileRequest = (payload) => ({
+  type: Types.CHANGE_USER_PROFILE_REQUEST,
+  payload
+})
+
+const changeUserProfileSucces = () => ({
+  type: Types.CHANGE_USER_PROFILE_SUCCESS,
+})
+
+
 export default {
   loginRequest,
   loginSucces,
@@ -54,4 +79,8 @@ export default {
   forgotPasswordRequest,
   forgotPasswordSuccess,
   logOut,
+  getUserProfileRequest,
+  getUserProfileSucces,
+  changeUserProfileRequest,
+  changeUserProfileSucces,
 }
