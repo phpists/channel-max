@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Notifications, { notify } from 'react-notify-toast'
 import { connect } from 'react-redux'
-import Actions from './../../store/actions'
+import Actions from '../../store/actions'
 
 const modalRoot = document.getElementById('modal')
 

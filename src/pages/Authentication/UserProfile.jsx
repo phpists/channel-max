@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, CardBody, Media, Button } from "reactstrap";
 import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { connect } from 'react-redux';
-import Actions from '../../store/actions'
 import { withRouter } from 'react-router-dom';
 import Breadcrumb from '../../components/Common/Breadcrumb';
 import noAvatar from '../../assets/images/users/no-avatar.png';
+import { connect } from 'react-redux';
+import Actions from '../../store/actions'
 import selectors from './../../selectors/index'
 
 const UserProfile = (props) => {
@@ -18,7 +18,7 @@ const UserProfile = (props) => {
 
 	useEffect(() => {
 		onGetUserProfile()
-	}, [user]);
+	}, [user, onGetUserProfile]);
 
 	function onFormSubmit(event, values) {
 		const data = {
@@ -80,7 +80,7 @@ const UserProfile = (props) => {
 									/>
 								</div>
 								<div className="text-center mt-4">
-									<Button type="submit" color="danger">Save</Button>
+									<Button type="submit" className="w-md" color="primary">Save</Button>
 								</div>
 							</AvForm>
 						</CardBody>

@@ -69,6 +69,7 @@
     "react-rating-tooltip": "^1.1.6",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
+    "react-router-last-location": "^2.0.1",
     "react-script": "^2.0.5",
     "react-scripts": "3.4.0",
     "react-select": "^3.0.8",

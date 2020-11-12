@@ -1,28 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap";
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import profile from "../../assets/images/profile-img.png";
 import logo from "../../assets/images/logo.svg";
 import Actions from '../../store/actions'
-// availity-reactstrap-validation
 import { AvForm, AvField } from 'availity-reactstrap-validation';
+import selectors from './../../selectors'
 
 const Login = (props) => {
-	function handleValidSubmit(event, values) {
+	const { history, authData, errorMessgae } = props
+	const [isSent, setSentStatus] = useState(false)
 
+	function onFormSubmit(event, values) {
 		const data = {
 			emailLogin: values
 		}
-
+		setSentStatus(true)
 		props.loginUser(data);
 	}
 
 	useEffect(()=>{
-		if(props.authData !== null){
-			props.history.push('/dashboard')
+		if(authData !== null){
+			history.push('/dashboard')
 		}
-	}, [props.authData])
+		setSentStatus(false)
+	}, [authData, history, errorMessgae])
 
 	return (
 		<React.Fragment>
@@ -58,13 +61,12 @@ const Login = (props) => {
 										</Link>
 									</div>
 									<div className="p-2">
-										<AvForm className="form-horizontal" onValidSubmit={(e, v) => { handleValidSubmit(e, v) }}>
+										<AvForm className="form-horizontal" onValidSubmit={(e, v) => { onFormSubmit(e, v) }}>
 											{props.error && props.error ? <Alert color="danger">{props.error}</Alert> : null}
 											<div className="form-group">
 												<AvField 
 													name="email" 
-													label="Email" 
-													// value="dimakrsna@gmail.com" 
+													label="Email"  
 													className="form-control" 
 													placeholder="Enter email" 
 													type="email" 
@@ -74,15 +76,17 @@ const Login = (props) => {
 											<div className="form-group">
 												<AvField 
 													name="password" 
-													label="Password" 
-													// value="wVDp!H!UmQ6f@NW" 
+													label="Password"  
 													type="password" 
 													placeholder="Enter Password" 
 													required 
 												/>
 											</div>
 											<div className="mt-3">
-												<button className="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
+												<button className="btn btn-primary btn-block waves-effect waves-light" type="submit">
+													{isSent && <i className="bx bx-loader bx-spin font-size-16 align-middle mr-2"></i>}
+													Log In
+												</button>
 											</div>
 											<div className="mt-4 text-center">
 												<Link to="/forgot-password" className="text-muted"><i className="mdi mdi-lock mr-1"></i> Forgot your password?</Link>
@@ -103,7 +107,8 @@ const Login = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-	authData: state.authorization.authData
+	authData: state.authorization.authData,
+	errorMessage: selectors.common.errorMessage(state),
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Notify from './pages/shared/Notify';
+import Notify from './components/Common/Notify';
 import store from './store';
 import { Routes } from './routes';
 import './i18n';
