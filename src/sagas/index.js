@@ -8,6 +8,7 @@ import {
     watchlogin,
     watchRegisterUser,
     watchForgotPassword,
+    watchNewPassword,
 } from './authorization'
 
 import {
@@ -27,6 +28,7 @@ export function* rootSaga() {
         takeEvery(AuthorizationTypes.LOGIN_REQUEST, watchlogin),
         takeEvery(AuthorizationTypes.REGISTER_USER_REQUEST, watchRegisterUser),
         takeEvery(AuthorizationTypes.FORGOT_PASSWORD_REQUEST, watchForgotPassword),
+        takeEvery(AuthorizationTypes.SEND_NEW_PASSAWORD_REQUEST, watchNewPassword),
         
         takeEvery(ProfileTypes.GET_USER_PROFILE_REQUEST, watchGetUserProfile),
         takeEvery(ProfileTypes.CHANGE_USER_PROFILE_REQUEST, watchChangeUserProfile),

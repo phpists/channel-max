@@ -1,10 +1,12 @@
 import React from 'react'
-import { Router, Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import { HashRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Login from "./pages/Authentication/Login";
 import Register from "./pages/Authentication/Register";
 import ForgetPwd from "./pages/Authentication/ForgetPassword";
+import PasswordRecovery from "./pages/Authentication/PasswordRecovery";
 import UserProfile from "./pages/Authentication/UserProfile";
 import Pages404 from "./pages/Utility/pages-404"
 import Dashboard from "./pages/Dashboard/index";
@@ -51,13 +53,14 @@ const PrivateRoute = connect(mapStateToProps)(Private)
 
 export const Routes = () => {
   return (
-    <Router history={history}>
+    <HashRouter>
       <LastLocationProvider>
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgetPwd} />
           <Route path="/register" component={Register} />
+          <Route path="/passwordrecovery" component={PasswordRecovery} />
           <PrivateRoute path="/profile" component={UserProfile} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/channels/create" component={CreateChannel} />
@@ -66,7 +69,7 @@ export const Routes = () => {
           <Route component={Pages404} />
         </Switch>
       </LastLocationProvider>
-    </Router>
+    </HashRouter>
   )
 }
 
